@@ -4,11 +4,12 @@ void capturar_enteros(){
     int suma=0;
     for (int i = 0; i < 5; i++)
     {
+        printf("Digita el numero %i de tu arreglo: ", i+1);
         scanf("%i", &enteros[i]);
     }
      for (int i = 0; i < 5; i++)
     {
-        printf("%i\n", enteros[i]);
+        printf("El numero %i de tu arreglo es: %i\n", i , enteros[i]);
     }
     for (int i = 0; i < 5; i++)
     {
@@ -16,11 +17,19 @@ void capturar_enteros(){
     }
     printf("Suma: %i\n", suma);
     printf("Promedio: %f\n", suma/5.0);
+}
 
+void mostrar(int n,char cadena[]){
+    for (int i = 0; i < n; i++)
+    {
+        printf("Cadena %i: %s", i+1 , cadena);
+    }
     
 }
 int main(){
     char op;
+    char cadena[20];
+    int n;
     do
     {
      printf(" \t\t==========Menu=========\n");
@@ -35,12 +44,19 @@ int main(){
         capturar_enteros();
          break;
      case '2':
+        printf("Escribe una cadena de hasta 20 caracteres: ");
+        fflush(stdin);
+        fgets(cadena, sizeof(cadena), stdin);
+        printf("Veces que lo vas a repetir: ");
+        scanf("%i", &n);
+        mostrar(n, cadena);
         break;
      case '3':
         break;
      default:
         break;
      }
+     fflush(stdin);
     } while (op!='0');
     
     
